@@ -1,7 +1,13 @@
+import { BrowserRouter as Router } from "react-router-dom"
+import { SidebarNavigation } from "./cmps/layout/sidebar-nabigation"
+
+
 export function App() {
   return (
-    <h1>
-      Hello instagram
-    </h1>
+    <>
+      <Router>
+        <SidebarNavigation />
+      </Router>
+    </>
   )
 }
