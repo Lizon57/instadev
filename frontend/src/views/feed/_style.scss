@@ -1,0 +1,11 @@
+@import '/src/styles/variable/import';
+
+
+.views--feed__container {
+    border-inline-start: 1px solid getColor('seperator');
+    
+    div {
+        max-width: max-content;
+        margin: 0 auto;
+    }
+}

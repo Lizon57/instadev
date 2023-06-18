@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { NavigationLink } from './navigation-link'
+import profileImage from '../../../assets/images/profile-image.jpg'
 
 
 const meta = {
@@ -7,15 +8,30 @@ const meta = {
   component: NavigationLink,
   tags: ['autodocs'],
   argTypes: {
+    isActive: { control: 'boolean' },
+    text: { control: 'text' },
   },
+  args: {
+    isActive: false
+  }
 } satisfies Meta<typeof NavigationLink>
 export default meta
 type Story = StoryObj<typeof meta>
 
 
-export const Example: Story = {
+export const Simple: Story = {
   args: {
     text: 'Home',
-    iconName: 'home-outline'
+    icon: {
+      active: 'home-fill',
+      inactive: 'home-outline'
+    }
+  },
+}
+
+export const WithImage: Story = {
+  args: {
+    text: 'Profile',
+    imageUrl: profileImage
   },
 }

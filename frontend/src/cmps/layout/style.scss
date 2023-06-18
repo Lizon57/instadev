@@ -1,7 +1,32 @@
 .layout--sidebar-navigation__container {
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
+    position: sticky;
+    top: 0;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-column: 0/1;
 
     font-size: 16px;
+    padding-inline: .75em;
+    height: 100vh;
+
+    .logo-container {
+        padding: 2.5em .75em 1.5em;
+
+        &:active svg {
+            color: #7f7f7f;
+        }
+    }
+
+    .main-links {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+
+        margin-block-start: .5em;
+    }
+
+    .more-links-dropdown-container {
+        margin-block-end: 1.5em;
+    }
 }

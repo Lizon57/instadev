@@ -1,0 +1,19 @@
+@use "sass:map";
+
+
+$color: (
+    "seperator": #dbdbdb
+);
+
+
+@function getColor($name) {
+    $result: map.get($color, $name);
+
+    @if ($result) {
+        @return $result;
+    }
+
+    @else {
+        @return '#000000';
+    }
+}

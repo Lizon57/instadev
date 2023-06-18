@@ -1,6 +1,8 @@
+@import '/src/styles/mixin/import';
+
 .layout--navigation-item__container {
     box-sizing: border-box;
-    list-style: none;
+    @include clean-list-style;
     cursor: pointer;
 
     border-radius: 0.5em;
@@ -19,16 +21,26 @@
         }
     }
 
+    &:active {
+        color: #7f7f7f;
+    }
+
+    &.with-image img {
+        border-radius: 50vw;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        width: 24px;
+    }
+
     a {
         display: flex;
         align-items: center;
         gap: 1em;
 
-        color: black;
+        color: currentColor;
         text-decoration: none;
 
         .common--icon__container {
-            display: flex;
             transition: transform 0.3s;
         }
     }

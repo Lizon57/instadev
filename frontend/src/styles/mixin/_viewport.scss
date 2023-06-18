@@ -1,0 +1,44 @@
+@mixin viewport-wide-range($minDeviceWide, $maxDeviceWide, $isInclusive: true) {
+    @if ($isInclusive) {
+        @media only screen and (max-width: calc(#{$maxDeviceWide} + 1px)) and (min-width: calc(#{$minDeviceWide} + 1px)) {
+            @content;
+        }
+    }
+
+    @else {
+        @media only screen and (max-width: $maxDeviceWide) and (min-width: $minDeviceWide) {
+            @content;
+        }
+    }
+}
+
+
+@mixin viewport-wide-up-to($maxDeviceWide, $isInclusive: true) {
+    @if ($isInclusive) {
+        @media only screen and (max-width: calc(#{$maxDeviceWide} + 1px)) {
+            @content;
+        }
+
+    }
+
+    @else {
+        @media only screen and (max-width: $maxDeviceWide) {
+            @content;
+        }
+    }
+}
+
+@mixin viewport-wide-start-from($minDeviceWide, $isInclusive: true) {
+    @if ($isInclusive) {
+        @media only screen and (min-width: calc(#{$minDeviceWide} + 1px)) {
+            @content;
+        }
+
+    }
+
+    @else {
+        @media only screen and (min-width: $minDeviceWide) {
+            @content;
+        }
+    }
+}
