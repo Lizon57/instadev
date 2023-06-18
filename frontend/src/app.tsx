@@ -3,7 +3,7 @@ import './styles/main.scss'
 import './_app.scss'
 import { BrowserRouter as Router } from "react-router-dom"
 
-import { SidebarNavigation } from "./cmps/layout/sidebar-nabigation"
+import { SidebarNavigation } from "./cmps/layout/sidebar-navigation/sidebar-navigation"
 import { Feed } from './views/feed/feed'
 
 

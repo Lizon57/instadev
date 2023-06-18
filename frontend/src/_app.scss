@@ -1,4 +1,15 @@
+@import './styles/mixin/import';
+@import './styles/variable/import';
+
 .app-layout__container {
     display: grid;
-    grid-template-columns: 335px 1fr;
+    grid-template-columns: 72px 1fr;
+
+    @include viewport-wide-start-from(getViewport("large"), false) {
+        grid-template-columns: 244px 1fr;
+    }
+
+    @include viewport-wide-start-from(getViewport("wide"), false) {
+        grid-template-columns: 335px 1fr;
+    }
 }

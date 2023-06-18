@@ -1,20 +1,25 @@
 @import '/src/styles/mixin/import';
+@import '/src/styles/variable/import';
 
 .layout--navigation-item__container {
     box-sizing: border-box;
     @include clean-list-style;
     cursor: pointer;
 
-    border-radius: 0.5em;
+    border-radius: .5em;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5em;
     padding: 12px;
 
-    transition: background-color 0.3s;
+    @include viewport-wide-up-to(getViewport("large")) {
+        max-width: max-content;
+    }
+
+    transition: background-color .3s;
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgba(0, 0, 0, .05);
 
         .common--icon__container {
             transform: scale(1.1);
@@ -40,8 +45,18 @@
         color: currentColor;
         text-decoration: none;
 
+        &.active {
+            font-weight: 700;
+        }
+
         .common--icon__container {
-            transition: transform 0.3s;
+            transition: transform .3s;
+        }
+
+        .text {
+            @include viewport-wide-up-to(getViewport("large")) {
+                display: none;
+            }
         }
     }
 }

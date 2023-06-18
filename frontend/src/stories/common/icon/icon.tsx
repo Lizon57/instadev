@@ -1,10 +1,11 @@
+import classNames from 'classnames'
 import { ICON_PATH_MAP } from '../../../constants/icon-path-map'
 import './style.scss'
 
 
-export const Icon = ({ name }: NavigationLinkProps) => {
+export const Icon = ({ name, classList }: NavigationLinkProps) => {
     return (
-        <span className="common--icon__container">
+        <span className={classNames('common--icon__container', classList)}>
             <svg
                 color="currentColor"
                 fill="currentColor"
@@ -25,6 +26,12 @@ interface NavigationLinkProps {
      * Icon name
      */
     name: string
+
+
+    /**
+     * Icon name
+     */
+    classList?: string | { [key: string]: any }
 
     /**
      * Optional click handler

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import classNames from "classnames"
 import { Icon } from '../../common/icon/icon'
 import './style.scss'
@@ -7,11 +7,11 @@ import './style.scss'
 export const NavigationLink = ({ text, icon, imageUrl, isActive, ...props }: NavigationLinkProps) => {
   return (
     <li className={classNames('layout--navigation-item__container', { 'with-image': imageUrl })}>
-      <NavLink to="#" {...props}>
-        {icon && <Icon name={isActive ? icon.active : icon.inactive} />}
+      <Link to="#" className={classNames({ active: isActive })} {...props}>
+        {icon && <Icon name={isActive ? icon.active : icon.inactive} classList={{ 'with-dot': icon?.shouldAppendDot }} />}
         {imageUrl && <img src={imageUrl} />}
-        {text}
-      </NavLink>
+        <span className="text">{text}</span>
+      </Link>
     </li>
   )
 }
@@ -24,11 +24,12 @@ interface NavigationLinkProps {
   text: string
 
   /**
-  * Icon name when active and inactive (using icon story)
+  * Icon name when active and inactive (using icon story), appending dot flag
   */
   icon?: {
-    active: string,
+    active: string
     inactive: string
+    shouldAppendDot?: Boolean
   }
 
   /**

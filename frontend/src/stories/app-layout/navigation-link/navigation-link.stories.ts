@@ -12,7 +12,7 @@ const meta = {
     text: { control: 'text' },
   },
   args: {
-    isActive: false
+    isActive: false,
   }
 } satisfies Meta<typeof NavigationLink>
 export default meta
@@ -24,7 +24,8 @@ export const Simple: Story = {
     text: 'Home',
     icon: {
       active: 'home-fill',
-      inactive: 'home-outline'
+      inactive: 'home-outline',
+      shouldAppendDot: false
     }
   },
 }
@@ -33,5 +34,16 @@ export const WithImage: Story = {
   args: {
     text: 'Profile',
     imageUrl: profileImage
+  },
+}
+
+export const WithDot: Story = {
+  args: {
+    text: 'Notifications',
+    icon: {
+      inactive: 'heart-outline',
+      active: 'heart-fill',
+      shouldAppendDot: true
+    }
   },
 }

@@ -1,4 +1,22 @@
 .common--icon__container {
     display: flex;
     transform: translateY(-1px);
+
+    &.with-dot {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: -1px;
+            right: -2px;
+
+            content: " ";
+
+            border-radius: 50vw;
+            border: 1.5px solid white;
+            background-color: red;
+            width: .5em;
+            height: .5em;
+        }
+    }
 }
