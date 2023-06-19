@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import classNames from "classnames"
 import { Icon } from '../../common/icon/icon'
 import './style.scss'
+import { RenderByDeviceWidth } from '../../../cmps/layout/render-by-device-width/render-by-device-width'
 
 
 export const NavigationLink = ({ text, icon, imageUrl, isActive, ...props }: NavigationLinkProps) => {
@@ -12,6 +13,9 @@ export const NavigationLink = ({ text, icon, imageUrl, isActive, ...props }: Nav
         {imageUrl && <img src={imageUrl} />}
         <span className="text">{text}</span>
       </Link>
+      <RenderByDeviceWidth maxDeviceWide="large">
+        <span className="tooltip">{text}</span>
+      </RenderByDeviceWidth>
     </li>
   )
 }

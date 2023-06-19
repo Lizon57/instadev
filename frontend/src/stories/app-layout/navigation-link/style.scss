@@ -2,6 +2,8 @@
 @import '/src/styles/variable/import';
 
 .layout--navigation-item__container {
+    position: relative;
+
     box-sizing: border-box;
     @include clean-list-style;
     cursor: pointer;
@@ -11,12 +13,11 @@
     font-size: 16px;
     line-height: 1.5em;
     padding: 12px;
+    transition: background-color .3s;
 
     @include viewport-wide-up-to(getViewport("large")) {
         max-width: max-content;
     }
-
-    transition: background-color .3s;
 
     &:hover {
         background-color: rgba(0, 0, 0, .05);
@@ -24,17 +25,32 @@
         .common--icon__container {
             transform: scale(1.1);
         }
+
+        .tooltip {
+            opacity: 1;
+            transform: translateY(-50%) scale(1);
+        }
     }
+
 
     &:active {
         color: #7f7f7f;
     }
 
-    &.with-image img {
-        border-radius: 50vw;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        width: 24px;
+    &.with-image {
+        a {
+            &.active img {
+                // Should get replaced with :has selector when Firefox will suppoer it
+                border: 2px solid black;
+            }
+
+            img {
+                border-radius: 50vw;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                width: 24px;
+            }
+        }
     }
 
     a {
@@ -57,6 +73,33 @@
             @include viewport-wide-up-to(getViewport("large")) {
                 display: none;
             }
+        }
+    }
+
+    .tooltip {
+        position: absolute;
+        top: 50%;
+        left: 4.5em;
+
+        opacity: 0;
+        border-radius: .5em;
+        font-size: 14px;
+        padding: .4em .8em;
+        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.0975);
+        transform: translateY(-50%) scale(0);
+        transition: transform ease-in .3s;
+        transition-delay: 1s;
+
+
+        &:before {
+            content: "⏴";
+            position: absolute;
+            top: 50%;
+            left: -14px;
+            transform: translateY(-60%);
+            color: #f1f1f1;
+            font-size: 25px;
+            text-shadow: 0 0 20px black;
         }
     }
 }
