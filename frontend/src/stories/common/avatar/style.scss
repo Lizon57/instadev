@@ -1,0 +1,61 @@
+.common--avatar__container {
+    $container-sizes: (tiny: 32px,
+        small: 42px,
+        medium: 56px,
+        large: 66px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50vw;
+
+    &.highlight {
+        background-image: url('../../../assets/images/highlight-circle.png');
+        background-size: contain;
+
+        .image-container {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                border-radius: 50vw;
+                box-shadow: inset 0 0 0 2px #fafafa;
+            }
+
+            img {
+                display: block;
+                border-radius: 50vw;
+            }
+        }
+    }
+
+    @each $size,
+    $container-size in $container-sizes {
+        &.#{$size} {
+            width: $container-size;
+            height: $container-size;
+
+            .image-container {
+                &::after {
+                    width: calc(#{$container-size} - 6px);
+                    height: calc(#{$container-size} - 6px);
+                }
+
+                img {
+                    width: calc(#{$container-size} - 6px);
+                    height: calc(#{$container-size} - 6px);
+                }
+            }
+
+            &:not(.highlight) img {
+                width: $container-size;
+                height: $container-size;
+            }
+        }
+    }
+}

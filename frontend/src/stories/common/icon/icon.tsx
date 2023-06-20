@@ -29,7 +29,7 @@ interface NavigationLinkProps {
 
 
     /**
-     * Icon name
+     * CSS classes
      */
     classList?: string | { [key: string]: any }
 
