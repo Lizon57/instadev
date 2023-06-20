@@ -20,15 +20,17 @@
     }
 
     &:hover {
-        background-color: rgba(0, 0, 0, .05);
+        @include viewport-wide-start-from(getViewport("small"), false) {
+            background-color: rgba(0, 0, 0, .05);
+
+            .tooltip {
+                opacity: 1;
+                transform: translateY(-50%) scale(1);
+            }
+        }
 
         .common--icon__container {
             transform: scale(1.1);
-        }
-
-        .tooltip {
-            opacity: 1;
-            transform: translateY(-50%) scale(1);
         }
     }
 
@@ -76,30 +78,38 @@
         }
     }
 
-    .tooltip {
-        position: absolute;
-        top: 50%;
-        left: 4.5em;
+    @include viewport-wide-up-to(getViewport("small"), true) {
+        .tooltip {
+            display: none;
+        }
+    }
 
-        opacity: 0;
-        border-radius: .5em;
-        font-size: 14px;
-        padding: .4em .8em;
-        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.0975);
-        transform: translateY(-50%) scale(0);
-        transition: transform ease-in .3s;
-        transition-delay: 1s;
-
-
-        &:before {
-            content: "⏴";
+    @include viewport-wide-start-from(getViewport("small"), false) {
+        .tooltip {
             position: absolute;
             top: 50%;
-            left: -14px;
-            transform: translateY(-60%);
-            color: #f1f1f1;
-            font-size: 25px;
-            text-shadow: 0 0 20px black;
+            left: 4.5em;
+
+            opacity: 0;
+            border-radius: .5em;
+            font-size: 14px;
+            padding: .4em .8em;
+            box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.0975);
+            transform: translateY(-50%) scale(0);
+            transition: transform ease-in .3s;
+            transition-delay: 1s;
+
+
+            &:before {
+                content: "⏴";
+                position: absolute;
+                top: 50%;
+                left: -14px;
+                transform: translateY(-60%);
+                color: #f1f1f1;
+                font-size: 25px;
+                text-shadow: 0 0 20px black;
+            }
         }
     }
 }

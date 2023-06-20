@@ -3,7 +3,7 @@ import './styles/main.scss'
 import './_app.scss'
 import { BrowserRouter as Router } from "react-router-dom"
 
-import { SidebarNavigation } from "./cmps/layout/sidebar-navigation/sidebar-navigation"
+import { NavigationBar } from "./cmps/layout/navigation-bar/nivigation-bar"
 import { Feed } from './views/feed/feed'
 
 
@@ -12,7 +12,7 @@ export function App() {
     <>
       <Router>
         <div className="app-layout__container">
-          <SidebarNavigation />
+          <NavigationBar />
           <Feed />
         </div>
       </Router>

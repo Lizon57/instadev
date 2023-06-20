@@ -1,8 +1,16 @@
 @import '/src/styles/variable/import';
+@import '/src/styles/mixin/import';
 
 
 .views--feed__container {
-    border-inline-start: 1px solid getColor("seperator");
+    @include viewport-wide-up-to(getViewport("small")) {
+        border-block-end: 1px solid getColor("seperator");
+        height: calc(100vh - 49px);
+    }
+
+    @include viewport-wide-start-from(getViewport("small"), false) {
+        border-inline-start: 1px solid getColor("seperator");
+    }
 
     div {
         max-width: max-content;
