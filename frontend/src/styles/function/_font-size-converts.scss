@@ -1,0 +1,8 @@
+@function getSizeInRem($size) {
+    $remSize: calc($size / 16px);
+    @return calc($remSize * 1rem);
+}
+
+@function getSizeInEm($pixels, $context: 14px) {
+    @return calc(($pixels/$context) * 1em);
+}

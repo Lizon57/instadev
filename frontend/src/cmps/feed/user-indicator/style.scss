@@ -1,0 +1,21 @@
+@import "../../../styles/mixin/import";
+@import "../../../styles/function/import";
+
+
+.feed--user-indicator__container {
+    @include simple-user-details;
+    gap: getSizeInEm(12px);
+    
+    .common--avatar__container {
+        margin-inline-end: getSizeInEm(6px);
+    }
+    
+    .name-container {
+        a {
+            font-weight: 600;
+            margin-inline-end: getSizeInEm(18px);
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

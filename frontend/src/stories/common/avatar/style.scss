@@ -26,11 +26,6 @@
                 border-radius: 50vw;
                 box-shadow: inset 0 0 0 2px #fafafa;
             }
-
-            img {
-                display: block;
-                border-radius: 50vw;
-            }
         }
     }
 
@@ -41,11 +36,8 @@
             height: $container-size;
 
             .image-container {
-                &::after {
-                    width: calc(#{$container-size} - 6px);
-                    height: calc(#{$container-size} - 6px);
-                }
 
+                &::after,
                 img {
                     width: calc(#{$container-size} - 6px);
                     height: calc(#{$container-size} - 6px);
@@ -53,9 +45,18 @@
             }
 
             &:not(.highlight) img {
+                box-shadow: inset 0 0 0 2px #fafafa;
+
                 width: $container-size;
                 height: $container-size;
             }
         }
+    }
+
+    .image-container img {
+        display: block;
+
+        border-radius: 50vw;
+        object-fit: contain;
     }
 }

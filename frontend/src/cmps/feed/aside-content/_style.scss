@@ -1,0 +1,10 @@
+@import '../../../styles/function/import';
+
+
+.feed--aside-content__container {
+    display: flex;
+    flex-direction: column;
+    gap: getSizeInEm(16px);
+
+    width: getSizeInRem(322px);
+}

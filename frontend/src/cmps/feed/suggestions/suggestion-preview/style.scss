@@ -1,0 +1,26 @@
+@import "../../../../styles/mixin/import";
+@import "../../../../styles/function/import";
+
+
+.feed--suggestion-preview__container {
+    @include simple-user-details;
+    gap: 15px;
+
+    padding-inline-start: 2px;
+
+    .name-container {
+        a {
+            font-weight: 600;
+            letter-spacing: .5px;
+        }
+
+        span {
+            font-size: getSizeInEm(12px);
+            line-height: getSizeInEm(16px);
+        }
+    }
+
+    button:hover {
+        color: getColor("primary-link");
+    }
+}

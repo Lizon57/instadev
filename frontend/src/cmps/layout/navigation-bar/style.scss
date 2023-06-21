@@ -11,6 +11,7 @@
 
         display: flex;
 
+        border-block-start: 1px solid getColor("seperator");
         width: 100%;
     }
 

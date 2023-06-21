@@ -1,0 +1,33 @@
+@import '../variable/import';
+
+
+@mixin simple-user-details {
+    display: flex;
+
+    .name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        flex-grow: 1;
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        span {
+            color: getColor("secondary-text");
+        }
+    }
+
+    button {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        color: getColor("primary-button");
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1em;
+    }
+}
