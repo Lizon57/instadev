@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import { Avatar } from "../../../stories/common/avatar/avatar"
-import profileImg from '../../../assets/images/profile-image.jpg'
+import { Avatar } from "../../../../stories/common/avatar/avatar"
+import profileImg from '../../../../assets/images/profile-image.jpg'
 import './style.scss'
 
 

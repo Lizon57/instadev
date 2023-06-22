@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Avatar } from "../../../../stories/common/avatar/avatar"
+import { Avatar } from "../../../../../stories/common/avatar/avatar"
 import './style.scss'
 
 
