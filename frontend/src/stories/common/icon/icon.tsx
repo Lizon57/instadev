@@ -3,9 +3,11 @@ import { ICON_PATH_MAP } from '../../../constants/icon-path-map'
 import './style.scss'
 
 
-export const Icon = ({ name, classList }: NavigationLinkProps) => {
+export const Icon = ({ name, title, classList, onClick, onMouseEnter, onMouseLeave }: NavigationLinkProps) => {
+    const props = { title, onClick, onMouseEnter, onMouseLeave }
+
     return (
-        <span className={classNames('common--icon__container', classList)}>
+        <span className={classNames('common--icon__container', classList)} {...props}>
             <svg
                 color="currentColor"
                 fill="currentColor"
@@ -29,6 +31,12 @@ interface NavigationLinkProps {
 
 
     /**
+     * Element title (A11Y)
+     */
+    title?: string
+
+
+    /**
      * CSS classes
      */
     classList?: string | { [key: string]: any }
@@ -37,4 +45,14 @@ interface NavigationLinkProps {
      * Optional click handler
      */
     onClick?: () => void
+
+    /**
+     * Optional mouse enter handler
+    */
+    onMouseEnter?: () => void
+
+    /**
+      * Optional mouse leave handler
+      */
+    onMouseLeave?: () => void
 }

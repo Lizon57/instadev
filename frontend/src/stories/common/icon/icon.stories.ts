@@ -23,3 +23,17 @@ export const Simple: Story = {
     name: 'home-outline',
   },
 }
+
+export const WithTitle: Story = {
+  args: {
+    name: 'home-outline',
+    title: 'home'
+  },
+}
+
+export const WithOnClick: Story = {
+  args: {
+    name: 'home-outline',
+    onClick: () => console.log('home')
+  },
+}

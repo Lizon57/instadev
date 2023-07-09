@@ -1,3 +1,6 @@
+@import "../../../styles/function/import";
+@import "../../../styles/variable/import";
+
 .common--icon__container {
     display: flex;
     transform: translateY(-1px);
@@ -14,7 +17,7 @@
 
             border-radius: 50vw;
             border: 1.5px solid white;
-            background-color: red;
+            background-color: getColor("primary-red");
             width: .5em;
             height: .5em;
         }

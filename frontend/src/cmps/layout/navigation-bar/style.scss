@@ -8,10 +8,12 @@
     @include viewport-wide-up-to(getViewport("small"), true) {
         position: fixed;
         bottom: 0;
+        z-index: 100;
 
         display: flex;
 
         border-block-start: 1px solid getColor("seperator");
+        background-color: white;
         width: 100%;
     }
 

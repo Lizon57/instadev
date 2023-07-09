@@ -11,8 +11,12 @@
         display: flex;
         justify-content: space-between;
 
-        padding-inline: .25rem;
         margin: 3.5rem auto 0;
         max-width: 73rem;
+
+        @include viewport-wide-up-to(getViewport("medium"), false) {
+            justify-content: center;
+            padding-inline: .25rem;
+        }
     }
 }
