@@ -2,10 +2,6 @@
 @import '/src/styles/variable/import';
 
 .layout--small-screen-top-bar__container {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
     display: flex;
     align-items: center;
 
@@ -13,6 +9,21 @@
     background-color: white;
     padding-inline: 16px;
     height: 60px;
+
+    @include viewport-wide-start-from(getViewport("tiny"), false) {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    &.top-render {
+        @include viewport-wide-up-to(getViewport("tiny"), true) {
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+    }
 
     .logo {
         position: relative;

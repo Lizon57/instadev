@@ -1,10 +1,14 @@
 @import '/src/styles/variable/import';
 @import '/src/styles/function/import';
+@import '/src/styles/mixin/import';
 
 
 .feed--share-preview__container {
     margin-block-end: getSizeInEm(12px);
-    width: getSizeInRem(470px);
+
+    @include viewport-wide-start-from(getViewport("tiny"), false) {
+        width: getSizeInRem(470px);
+    }
 
     &:not(:last-of-type) {
         padding-block-end: getSizeInEm(20px);
