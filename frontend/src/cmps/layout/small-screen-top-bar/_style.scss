@@ -1,0 +1,81 @@
+@import '/src/styles/mixin/import';
+@import '/src/styles/variable/import';
+
+.layout--small-screen-top-bar__container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+
+    border-block-end: 1px solid getColor("seperator");
+    background-color: white;
+    padding-inline: 16px;
+    height: 60px;
+
+    .logo {
+        position: relative;
+        top: 1px;
+
+        flex-grow: 1;
+    }
+
+    .options {
+        display: flex;
+
+        .search-container {
+            position: relative;
+
+            padding-inline-end: 8px;
+            margin-inline-end: 12px;
+
+            input {
+                border-radius: 8px;
+                border: none;
+                background-color: #efefef;
+                font-size: 16px;
+                line-height: 21px;
+                padding: 3px 16px 3px 42px;
+                height: 36px;
+                width: 268px;
+
+                &:focus-within {
+                    outline: 0;
+                    padding-inline-start: 16px;
+
+                    +.common--icon__container {
+                        display: none;
+                    }
+                }
+            }
+
+            .common--icon__container {
+                position: absolute;
+                top: 6px;
+                left: 16px;
+
+                color: getColor("icon-hover");
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .common--icon__container {
+            transition: transform ease-in-out .2s;
+
+            @include viewport-wide-start-from(getViewport("tiny"), false) {
+                position: relative;
+                top: 5px;
+            }
+
+            &.messages {
+                padding-inline-end: 16px;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

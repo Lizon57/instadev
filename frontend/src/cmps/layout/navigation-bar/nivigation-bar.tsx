@@ -26,7 +26,7 @@ export function NavigationBar() {
     const { width: deviceWidth } = useWindowSize()
 
     useEffect(() => {
-        if ((deviceWidth < SCREEN_WIDTH_MAP.tiny) && (narrowMobileNavigationLinks.length !== navigationLinks.length)) {
+        if (deviceWidth < SCREEN_WIDTH_MAP.tiny) {
             setNavigationLinks(narrowMobileNavigationLinks)
         } else if ((deviceWidth < SCREEN_WIDTH_MAP.small) && (wideMobileNavigationLinks.length !== navigationLinks.length)) {
             setNavigationLinks(wideMobileNavigationLinks)

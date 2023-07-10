@@ -108,8 +108,8 @@ export function SharePreview() {
                         onMouseEnter={handleMouseEnterLikedIcon}
                         onMouseLeave={handleMouseLeaveLikedIcon}
                     />
-                    <Icon name="chat-outline" title="Comment" />
-                    <Icon name="messages-outline" title="Share Post" />
+                    <Icon name="chat-outline" title="Comment" classList="hover-able" />
+                    <Icon name="messages-outline" title="Share Post" classList="hover-able" />
                 </div>
 
                 <div className="end-panel">
