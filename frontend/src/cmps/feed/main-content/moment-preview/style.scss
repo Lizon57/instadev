@@ -3,7 +3,7 @@
 @import '/src/styles/mixin/import';
 
 
-.feed--share-preview__container {
+.feed--moment-preview__container {
     margin-block-end: getSizeInEm(12px);
 
     @include viewport-wide-start-from(getViewport("tiny"), false) {

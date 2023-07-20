@@ -2,7 +2,7 @@
 @import '/src/styles/mixin/import';
 
 
-.feed--share-list__container {
+.feed--moment-list__container {
     @include viewport-wide-up-to(getViewport("tiny"), false) {
         padding-inline: 16px;
     }

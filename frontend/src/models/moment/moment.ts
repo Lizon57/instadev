@@ -2,7 +2,7 @@ import { Comment } from "../comment/comment"
 import { MiniUser } from "../user/mini-user"
 
 
-export interface Share {
+export interface Moment {
     _id?: string
 
     miniCreator: MiniUser

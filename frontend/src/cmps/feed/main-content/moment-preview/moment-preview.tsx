@@ -3,7 +3,7 @@ import { useState } from "react"
 import { makeId } from "../../../../services/util/make-id"
 import { getTimePassedFormated } from "../../../../services/util/get-time-passed-formated"
 
-import { Share } from "../../../../models/share/share"
+import { Moment } from "../../../../models/moment/moment"
 
 import { Avatar } from "../../../../stories/common/avatar/avatar"
 import { Icon } from "../../../../stories/common/icon/icon"
@@ -12,7 +12,7 @@ import './style.scss'
 import classNames from "classnames"
 
 
-const SHARE: Share = {
+const MOMENT: Moment = {
     _id: makeId(),
 
     miniCreator: {
@@ -53,11 +53,11 @@ const SHARE: Share = {
 }
 
 
-export function SharePreview() {
-    const [isLiked, setIsLiked] = useState(SHARE.flags.isLiked)
+export function MomentPreview() {
+    const [isLiked, setIsLiked] = useState(MOMENT.flags.isLiked)
     const [isLikedIconHover, setIsLikedIconHover] = useState(false)
     const [isLikedAnimationStarted, setIsLikedAnimationStarted] = useState(false)
-    const [isSaved, setIsSaved] = useState(SHARE.flags.isSaved)
+    const [isSaved, setIsSaved] = useState(MOMENT.flags.isSaved)
 
     const toggleIsLiked = () => setIsLiked(!isLiked)
     const toggleIsSaved = () => setIsSaved(!isSaved)
@@ -70,26 +70,26 @@ export function SharePreview() {
 
 
     return (
-        <article className="feed--share-preview__container">
+        <article className="feed--moment-preview__container">
             <div className="details-container">
-                <Avatar imageUrl={SHARE.miniCreator.imageUrl} size="small" shouldHighlight={SHARE.miniCreator.isHasStory} />
+                <Avatar imageUrl={MOMENT.miniCreator.imageUrl} size="small" shouldHighlight={MOMENT.miniCreator.isHasStory} />
                 <div className="details">
                     <div className="user-and-time-container">
-                        <span className="creator-name">{SHARE.miniCreator.displayName}</span>
-                        {SHARE.miniCreator.isVerified && <span className="verified-user-indicator">
+                        <span className="creator-name">{MOMENT.miniCreator.displayName}</span>
+                        {MOMENT.miniCreator.isVerified && <span className="verified-user-indicator">
                             <Icon name="verified-user-fill" />
                         </span>
                         }
                         <span className="published-time">
-                            <time dateTime={SHARE.cratedAt.toString()}>{getTimePassedFormated(SHARE.cratedAt)}</time>
+                            <time dateTime={MOMENT.cratedAt.toString()}>{getTimePassedFormated(MOMENT.cratedAt)}</time>
                         </span>
                     </div>
-                    <span className="location">{SHARE.media.location}</span>
+                    <span className="location">{MOMENT.media.location}</span>
                 </div>
             </div>
 
             <div className="media-container">
-                <img src={SHARE.media.images?.[0].imageUrl} />
+                <img src={MOMENT.media.images?.[0].imageUrl} />
             </div>
 
             <div className="actions-container">
@@ -123,7 +123,7 @@ export function SharePreview() {
             </div>
 
             <div className="reactions-container">
-                {!!SHARE.like.likeCount && <div className="like-counter">{SHARE.like.likeCount} likes</div>}
+                {!!MOMENT.like.likeCount && <div className="like-counter">{MOMENT.like.likeCount} likes</div>}
             </div>
         </article>
     )
