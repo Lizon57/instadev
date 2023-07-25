@@ -1,4 +1,5 @@
 import { useState } from "react"
+import uuid from "react-uuid"
 
 import { makeId } from "../../../../services/util/make-id"
 import { getTimePassedFormated } from "../../../../services/util/get-time-passed-formated"
@@ -10,6 +11,7 @@ import { Icon } from "../../../../stories/common/icon/icon"
 
 import './style.scss'
 import classNames from "classnames"
+import { SliderGallery } from "../../../../stories/common/slider-gallery/slider-gallery"
 
 
 const MOMENT: Moment = {
@@ -33,10 +35,13 @@ const MOMENT: Moment = {
             {
                 imageUrl: 'https://www.sportpalace.co.il/wp-content/uploads/2015/07/1600X800_8325-1024x512.jpg',
                 tagged: []
+            },
+            {
+                imageUrl: 'https://www.sportpalace.co.il/wp-content/uploads/2015/07/1600X800_8325-1024x512.jpg',
+                tagged: []
             }
         ]
-    }
-    ,
+    },
 
     like: {
         likeCount: 4,
@@ -88,9 +93,9 @@ export function MomentPreview() {
                 </div>
             </div>
 
-            <div className="media-container">
-                <img src={MOMENT.media.images?.[0].imageUrl} />
-            </div>
+            <SliderGallery>
+                {MOMENT.media.images?.map(image => <img src={image.imageUrl} key={uuid()} />)}
+            </SliderGallery>
 
             <div className="actions-container">
                 <div className="start-panel">

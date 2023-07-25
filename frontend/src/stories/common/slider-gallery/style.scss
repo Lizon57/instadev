@@ -1,0 +1,104 @@
+@import '/src/styles/function/import';
+@import '/src/styles/mixin/import';
+
+
+.common--slider-gallery__container {
+    position: relative;
+
+    overflow: hidden;
+    border-radius: getSizeInEm(4px);
+    margin-block-end: getSizeInEm(4px);
+    max-width: 468px;
+    height: 100%;
+
+    .slick-slider {
+        img {
+            border-radius: getSizeInEm(4px);
+        }
+    }
+
+    &.hide-prev-arrow {
+        button.slick-arrow.slick-prev {
+            left: -100%;
+        }
+    }
+
+    &.hide-next-arrow {
+        button.slick-arrow.slick-next {
+            right: -100%;
+        }
+    }
+
+    .slick-arrow {
+        position: absolute;
+        z-index: 10;
+
+        background-image: url('../../../assets/images/app-sprite.png');
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        
+        &::before {
+            content: '';
+        }
+        
+        &:hover {
+            background-image: url('../../../assets/images/app-sprite.png');
+        }
+
+        &.slick-prev {
+            left: 8px;
+            background-position: -130px -98px;
+        }
+        
+        &.slick-next {
+            right: 8px;
+            background-position: -162px -98px;
+        }
+    }
+
+    .slick-dots {
+        position: absolute;
+        bottom: 11px;
+
+        li {
+            margin: 0;
+            width: 10px;
+
+            &.slick-active button::before {
+                color: white;
+                opacity: unset;
+            }
+
+            &:not(.slick-active) button::before {
+                color: white;
+                opacity: 0.5;
+            }
+
+            button {
+                padding: unset;
+            }
+        }
+    }
+
+    .buffer {
+        position: absolute;
+        bottom: 5px;
+        z-index: 5;
+        height: 32px;
+
+        $size-classes: (tiny: 40px,
+            small: 60px,
+            medium: 80px,
+            large: 100px,
+            huge: 120px);
+
+        @each $class,
+        $size in $size-classes {
+            &.#{$class} {
+                left: calc(50% + 5px - calc($size / 2));
+                width: $size;
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ import profileImage from '../../../assets/images/profile-image.jpg'
 
 
 const meta = {
-  title: 'NavigationLink (Sidenav)',
+  title: 'Navigation Link (Sidenav)',
   component: NavigationLink,
   tags: ['autodocs'],
   argTypes: {

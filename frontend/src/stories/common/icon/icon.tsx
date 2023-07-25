@@ -3,7 +3,7 @@ import { ICON_PATH_MAP } from '../../../constants/icon-path-map'
 import './style.scss'
 
 
-export const Icon = ({ name, title, classList, onClick, onMouseEnter, onMouseLeave }: NavigationLinkProps) => {
+export const Icon = ({ name, title, classList, onClick, onMouseEnter, onMouseLeave }: IconProps) => {
     const props = { title, onClick, onMouseEnter, onMouseLeave }
 
     return (
@@ -23,7 +23,7 @@ export const Icon = ({ name, title, classList, onClick, onMouseEnter, onMouseLea
 }
 
 
-interface NavigationLinkProps {
+interface IconProps {
     /**
      * Icon name
      */
