@@ -112,45 +112,6 @@
         .start-panel {
             display: flex;
             flex-grow: 1;
-
-            .common--icon__container {
-                &:first-of-type {
-                    padding-inline-start: 0;
-                }
-
-                &.liked {
-                    color: getColor("primary-red");
-                }
-
-                &.liked-indicator {
-
-                    &.liked,
-                    &.hover-out {
-                        transition: transform .3s;
-                        animation: pulse .2s forwards 1;
-                    }
-
-                    @keyframes pulse {
-                        0% {
-                            transform: scale(1);
-                        }
-
-                        50% {
-                            transform: scale(1.2);
-                        }
-
-                        100% {
-                            transform: scale(1);
-                        }
-                    }
-                }
-            }
-        }
-
-        .end-panel {
-            .common--icon__container:last-of-type {
-                padding-inline-end: 0;
-            }
         }
     }
 

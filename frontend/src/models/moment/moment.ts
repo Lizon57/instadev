@@ -36,7 +36,7 @@ export interface Moment {
     comments: Comment[]
 
     flags: {
-        isSaved: boolean
+        isTicket: boolean
         isLiked: boolean
     }
 }

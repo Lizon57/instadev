@@ -1,4 +1,3 @@
-import { useState } from "react"
 import uuid from "react-uuid"
 
 import { makeId } from "../../../../services/util/make-id"
@@ -9,10 +8,11 @@ import { Moment } from "../../../../models/moment/moment"
 import { Avatar } from "../../../../stories/common/avatar/avatar"
 import { Icon } from "../../../../stories/common/icon/icon"
 
-import './style.scss'
-import classNames from "classnames"
 import { SliderGallery } from "../../../../stories/common/slider-gallery/slider-gallery"
 import { MomentText } from "../../../../stories/feed/moment-text"
+import { LikeButton } from "./like-button/like-button"
+import { TicketButton } from "./ticket-button/ticket-button"
+import './style.scss'
 
 
 const MOMENT: Moment = {
@@ -52,7 +52,7 @@ const MOMENT: Moment = {
     comments: [],
 
     flags: {
-        isSaved: false,
+        isTicket: false,
         isLiked: false,
     }
 
@@ -60,20 +60,6 @@ const MOMENT: Moment = {
 
 
 export function MomentPreview() {
-    const [isLiked, setIsLiked] = useState(MOMENT.flags.isLiked)
-    const [isLikedIconHover, setIsLikedIconHover] = useState(false)
-    const [isLikedAnimationStarted, setIsLikedAnimationStarted] = useState(false)
-    const [isSaved, setIsSaved] = useState(MOMENT.flags.isSaved)
-
-    const toggleIsLiked = () => setIsLiked(!isLiked)
-    const toggleIsSaved = () => setIsSaved(!isSaved)
-
-    const handleMouseEnterLikedIcon = () => setIsLikedIconHover(true)
-    const handleMouseLeaveLikedIcon = () => {
-        setIsLikedIconHover(false)
-        setIsLikedAnimationStarted(true)
-    }
-
 
     return (
         <article className="feed--moment-preview__container">
@@ -100,32 +86,12 @@ export function MomentPreview() {
 
             <div className="actions-container">
                 <div className="start-panel">
-                    <Icon
-                        classList={classNames('liked-indicator',
-                            {
-                                'liked': isLiked,
-                                'hover-able': !isLiked,
-                                'hover-out': !isLikedIconHover && isLikedAnimationStarted
-                            }
-                        )}
-                        name={isLiked ? 'heart-fill' : 'heart-outline'}
-                        title={isLiked ? 'Unlike' : 'Like'}
-                        onClick={toggleIsLiked}
-                        onMouseEnter={handleMouseEnterLikedIcon}
-                        onMouseLeave={handleMouseLeaveLikedIcon}
-                    />
+                    <LikeButton isLikedMoment={MOMENT.flags.isLiked} />
                     <Icon name="chat-outline" title="Comment" classList="hover-able" />
                     <Icon name="messages-outline" title="Share Post" classList="hover-able" />
                 </div>
 
-                <div className="end-panel">
-                    <Icon
-                        classList={classNames('saved-indicator', { 'hover-able': !isSaved })}
-                        name={isSaved ? 'bookmark-fill' : 'bookmark-outline'}
-                        title={isSaved ? 'Remove' : 'Save'}
-                        onClick={toggleIsSaved}
-                    />
-                </div>
+                <TicketButton isTicketMoment={MOMENT.flags.isTicket} />
             </div>
 
             <div className="reactions-container">

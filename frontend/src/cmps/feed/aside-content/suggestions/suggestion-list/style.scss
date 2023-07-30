@@ -23,6 +23,10 @@
             line-height: getSizeInEm(16px);
             text-decoration: none;
             letter-spacing: .5px;
+
+            &:hover {
+                color: #808080;
+            }
         }
     }
 
