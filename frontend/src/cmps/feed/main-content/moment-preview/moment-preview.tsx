@@ -12,6 +12,7 @@ import { Icon } from "../../../../stories/common/icon/icon"
 import './style.scss'
 import classNames from "classnames"
 import { SliderGallery } from "../../../../stories/common/slider-gallery/slider-gallery"
+import { MomentText } from "../../../../stories/feed/moment-text"
 
 
 const MOMENT: Moment = {
@@ -30,7 +31,7 @@ const MOMENT: Moment = {
 
     media: {
         location: 'Apolo center of USA',
-        text: 'This is my new APOLO STRING',
+        text: 'This is my new APOLO STRINGT his is my new APOLO STRING This is my new APOLO STRINGThis is my new APOLO STRING This is my new APOLO STRING',
         images: [
             {
                 imageUrl: 'https://www.sportpalace.co.il/wp-content/uploads/2015/07/1600X800_8325-1024x512.jpg',
@@ -130,6 +131,8 @@ export function MomentPreview() {
             <div className="reactions-container">
                 {!!MOMENT.like.likeCount && <div className="like-counter">{MOMENT.like.likeCount} likes</div>}
             </div>
+
+            <MomentText text={MOMENT.media.text} nickname={MOMENT.miniCreator.nickname} />
         </article>
     )
 }

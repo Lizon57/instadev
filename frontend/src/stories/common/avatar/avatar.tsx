@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import './style.scss'
 
 
-export const Avatar = ({ imageUrl, size, shouldHighlight, classList }: NavigationLinkProps) => {
+export const Avatar = ({ imageUrl, size, shouldHighlight, classList }: AvatarProps) => {
     return (
         <span className={classNames('common--avatar__container', size, classList, { 'highlight': shouldHighlight })}>
             <span className="image-container">
@@ -14,7 +14,7 @@ export const Avatar = ({ imageUrl, size, shouldHighlight, classList }: Navigatio
 }
 
 
-interface NavigationLinkProps {
+interface AvatarProps {
     /**
      * Image url
      */
