@@ -34,6 +34,7 @@
 
     .options {
         display: flex;
+        align-items: center;
 
         .search-container {
             position: relative;
@@ -63,7 +64,7 @@
 
             .common--icon__container {
                 position: absolute;
-                top: 6px;
+                top: .5em;
                 left: 16px;
 
                 color: getColor("icon-hover");
@@ -74,11 +75,6 @@
 
         .common--icon__container {
             transition: transform ease-in-out .2s;
-
-            @include viewport-wide-start-from(getViewport("tiny"), false) {
-                position: relative;
-                top: 5px;
-            }
 
             &.messages {
                 padding-inline-end: 16px;

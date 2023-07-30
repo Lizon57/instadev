@@ -41,7 +41,7 @@
     &.with-image {
         a {
             &.active img {
-                // Should get replaced with :has selector when Firefox will suppoer it
+                // Should get replaced with :has selector when Firefox will support it
                 border: 2px solid black;
             }
 

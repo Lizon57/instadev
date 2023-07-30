@@ -5,9 +5,23 @@
 
 .feed--moment-preview__container {
     margin-block-end: getSizeInEm(12px);
+    margin-inline: auto;
+    max-width: getSizeInRem(315px);
+    
+    @include viewport-wide-start-from(380, false) {
+        max-width: getSizeInRem(345px);
+    }
+
+    @include viewport-wide-start-from(420, false) {
+        max-width: getSizeInRem(385px);
+    }
+
+    @include viewport-wide-start-from(460, false) {
+        max-width: getSizeInRem(425px);
+    }
 
     @include viewport-wide-start-from(getViewport("tiny"), false) {
-        width: getSizeInRem(470px);
+        max-width: unset;
     }
 
     &:not(:last-of-type) {

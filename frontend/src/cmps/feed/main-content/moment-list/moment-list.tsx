@@ -3,10 +3,10 @@ import './style.scss'
 
 export function MomentList() {
     return (
-        <main className="feed--moment-list__container">
+        <section className="feed--moment-list__container">
             <MomentPreview />
             <MomentPreview />
             <MomentPreview />
-        </main>
+        </section>
     )
 }
